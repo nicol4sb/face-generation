@@ -2,7 +2,6 @@ from copy import deepcopy
 from unittest import mock
 import tensorflow as tf
 
-
 def test_safe(func):
     """
     Isolate tests
@@ -18,7 +17,7 @@ def test_safe(func):
 
 def _assert_tensor_shape(tensor, shape, display_name):
     assert tf.assert_rank(tensor, len(shape), message='{} has wrong rank'.format(display_name))
-
+    
     tensor_shape = tensor.get_shape().as_list() if len(shape) else []
 
     wrong_dimension = [ten_dim for ten_dim, cor_dim in zip(tensor_shape, shape)
